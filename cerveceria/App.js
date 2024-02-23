@@ -4,8 +4,9 @@ import Cervezas from './src/componentes/ListadoCervezas';
 import Login from './src/componentes/Login';
 import Main from './src/componentes/Main';
 import { NativeRouter } from 'react-router-native';
+import AppBar from './src/componentes/AppBar';
 export default function App() {
   return <NativeRouter>
-    <Login />
+    <Main />
   </NativeRouter>
 }
