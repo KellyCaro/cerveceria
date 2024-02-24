@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text,View } from 'react-native';
 import { Tabs } from 'expo-router';
 import Login from './Login';
+import Cervezas from './ListadoCervezas';
 
 
 
@@ -17,7 +18,7 @@ const AppBarTab = ({ to, children }) => {
   const AppBar = () => {
     return (
       <Tabs>
-          <Tabs.Screen name="Login" component={Login}/>
+          <Tabs.Screen name="ItemCervezas" component={Cervezas}/>
       </Tabs>
     );
   };

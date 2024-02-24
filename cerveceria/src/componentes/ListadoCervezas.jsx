@@ -1,15 +1,14 @@
-
 import React, { useState, useEffect } from 'react';
-
-import { StyleSheet,FlatList, Text, View, TextInput, Button, Alert, StatusBar } from 'react-native';
+import { StyleSheet, FlatList, Text, 
+TouchableOpacity,TextInput } from 'react-native';
 import prueba from '../../DatosPrueba/prueba';
 import ItemCerveceria from './ItemCerveceria';
-
-
+import { Ionicons } from '@expo/vector-icons';
 const Cervezas = () => {
   const [cervezas, setCervezas] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const fetchCervezas = async () => {
     try {
@@ -27,56 +26,71 @@ const Cervezas = () => {
       setLoading(false);
     }
   };
+
   useEffect(() => {
     fetchCervezas();
   }, []);
+  const handleFilterPress = () => {
+    // Aquí puedes agregar la lógica para filtrar las cervezas
+    console.log('Filtrar cervezas');
+    // Por ahora, solo mostraré un mensaje de alerta
+    alert('Filtrar cervezas');
+  };
+
+  
+  const filteredCervezas = cervezas.filter(cerveza =>
+    cerveza.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+  const handleSearchChange = (text) => {
+    setSearchTerm(text);
+  };
+  
 
   if (loading) {
-    return <p>Cargando...</p>;
+    return <Text>Cargando...</Text>;
   }
 
   if (error) {
-    return <p>Error: {error}</p>;
+    return <Text>Error: {error}</Text>;
   }
 
-
   return (
-  
-    
-    <FlatList 
-    
-    style={styles.container}
-    data={cervezas}
-    //ItemSeparatorComponent={()=><Text></Text>}
-    renderItem={({ item: repo }) => (
-        
+    <FlatList
+      style={styles.container}
+      data={filteredCervezas}
+      renderItem={({ item: repo }) => (
         <ItemCerveceria {...repo}/>   
-    )}
->
-
-   
-    </FlatList>
-
-  )
+      )}
+      ListHeaderComponent={
+        <TouchableOpacity style={styles.filterButton} onPress={handleFilterPress}>
+          <TextInput
+          style={styles.textInput}
+          placeholder="Buscar cerveza..."
+          onChangeText={handleSearchChange}
+          value={searchTerm}
+        />
+        </TouchableOpacity>
+      }
+    />
+  );
 };
+
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
-    // //marginTop: StatusBar.currentHeight || 0,
-     marginLeft: 20,
-     marginRight: 20,
-     marginBottom:20,
+    marginLeft: 20,
+    marginRight: 20,
+    marginBottom: 20,
+  },
+  textInput: {
+   
+    borderBottomWidth: 3,
+    borderBottomColor: '#5B3A29',
     
-    //borderTopColor: '#5B3A29', 
-    borderRightColor: '#5B3A29', 
-    borderLeftColor: '#5B3A29', 
-    //border: 2,
-    //borderRadius: 15
-}
+    padding: 5,
+    marginTop: 15,
+    width: '100%'
 
-}
-)
-
-
+  }
+});
 
 export default Cervezas;

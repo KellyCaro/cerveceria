@@ -1,18 +1,48 @@
-import React from 'react';
-import { StyleSheet, Text, View, TextInput, Button, Alert, StatusBar } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
+
 
 const Login = () => {
+  const [usuario, setUsuario] = useState('');
+  const [contraseña, setContraseña] = useState('');
+  const navigation = useNavigation();
+
+  const handlePress = async () => {
+    try {
+      // Tu lógica de autenticación aquí...
+
+      // Si la autenticación es exitosa, navega a la pantalla de Cervezas
+      navigation.navigate('Main');
+    } catch (error) {
+      Alert.alert('Error', 'Ha ocurrido un error durante la autenticación.');
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.titulo}>Cerveceria</Text>
       <Text style={styles.subtitulo}>Ingresa a tu cuenta</Text>
-      <TextInput placeholder='Digita tu usuario' style={styles.textInput}></TextInput>
-      <TextInput placeholder='Digita tu Contraseña' style={styles.textInput}></TextInput>
-      <Button title="Press me" onPress={() => Alert.alert('Simple Button pressed')} />
-     
+      <TextInput 
+        placeholder='Digita tu usuario' 
+        style={styles.textInput} 
+        onChangeText={text => setUsuario(text)}
+        value={usuario}
+      />
+      <TextInput 
+        placeholder='Digita tu Contraseña' 
+        style={styles.textInput} 
+        onChangeText={text => setContraseña(text)}
+        value={contraseña}
+        secureTextEntry={true} // Para ocultar la contraseña
+      />
+      <Button title="Presionar" onPress={handlePress} />
     </View>
-  )
+  );
 };
+
+
 
 const styles = StyleSheet.create({
   container: {
@@ -40,12 +70,6 @@ const styles = StyleSheet.create({
     marginTop: 15,
     width: '80%'
   },
-  buttonL: {
-    borderRadius: 10,
-    padding: 5,
-    marginTop: 15,
-    backgroundColor: 'red', // Cambié Redirect por 'red' como ejemplo
-  }
 });
 
 export default Login;
