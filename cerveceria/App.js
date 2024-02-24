@@ -1,6 +1,6 @@
 import React,{ useState } from 'react';
 
-import AppBar from './src/vistas/AppBar';
+
 import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NavigationContainer } from '@react-navigation/native';

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { StyleSheet, FlatList, Text, View, TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons'; // Asegúrate de importar Ionicons correctamente
 
 const Favoritos = ({ favoritos }) => {
     return (
@@ -10,10 +9,10 @@ const Favoritos = ({ favoritos }) => {
           data={favoritos}
           renderItem={({ item }) => (
             <View>
-              <Text>{item.name}</Text> {/* Por ejemplo, muestra el nombre del ítem */}
+              <Text>{item.name}</Text> 
             </View>
           )}
-          keyExtractor={(item) => item.id.toString()} // Asegúrate de proporcionar una clave única para cada elemento
+          keyExtractor={(item) => item.id.toString()} 
         />
       </View>
     );

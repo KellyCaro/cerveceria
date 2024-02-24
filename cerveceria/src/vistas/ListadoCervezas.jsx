@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, FlatList, Text, 
 TouchableOpacity,TextInput } from 'react-native';
-import prueba from '../../DatosPrueba/prueba';
 import ItemCerveceria from './ItemCerveceria';
-import { Ionicons } from '@expo/vector-icons';
+
 const Cervezas = () => {
   const [cervezas, setCervezas] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -65,7 +64,7 @@ const Cervezas = () => {
         <TouchableOpacity style={styles.filterButton} onPress={handleFilterPress}>
           <TextInput
           style={styles.textInput}
-          placeholder="Buscar cerveza..."
+          placeholder="Buscar cerveceria..."
           onChangeText={handleSearchChange}
           value={searchTerm}
         />
