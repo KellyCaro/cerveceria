@@ -34,7 +34,7 @@ const Cervezas = () => {
     // Aquí puedes agregar la lógica para filtrar las cervezas
     console.log('Filtrar cervezas');
     // Por ahora, solo mostraré un mensaje de alerta
-    alert('Filtrar cervezas');
+  
   };
 
   

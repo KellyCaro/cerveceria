@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import { StyleSheet,FlatList, Text, 
-  View, TextInput, Button, Alert, StatusBar,Modal,TouchableOpacity } from 'react-native';
+  View, TextInput, Button, Alert, StatusBar,Modal,Image,ImageBackgroundComponent,TouchableOpacity } from 'react-native';
 import prueba from '../../DatosPrueba/prueba';
 import Constants from 'expo-constants'
 import { Ionicons } from '@expo/vector-icons';
@@ -10,6 +10,11 @@ const ItemCerveceria = (item) => {
   const [modalVisible, setModalVisible] = useState(false);
   const handleStarPress = () => {
     setModalVisible(true);
+  };
+const handleAddToFavorites = () => {
+    // Agregar lógica para guardar el ítem en favoritos
+    // Por ejemplo, podrías agregar el ítem a un estado de favoritos
+    setFavoritos([...favoritos, item]);
   };
 
   return (
@@ -34,11 +39,33 @@ const ItemCerveceria = (item) => {
         onRequestClose={() => setModalVisible(false)}
       >
         <View style={styles.modalContainer}>
+          
           <View style={styles.modalContent}>
-            <Text>Contenido de la modal</Text>
-            <TouchableOpacity onPress={() => setModalVisible(false)}>
-              <Text>Cerrar</Text>
-            </TouchableOpacity>
+            
+            <Image
+            source={require('./images/1.jpg')} // Ruta de la imagen
+            style={styles.imageStyle} // Estilos de la imagen
+          />
+           <Text style={styles.subtitulo}>{item.name}</Text>
+          <Text>País: {item.country}</Text>
+          <Text>Ciudad: {item.city}</Text>
+          <Text>URL: {item.state}</Text>
+          <Text>Direccion: {item.street||'No disponible'}</Text>
+          <Text>Teléfono: {item.phone}</Text>
+          
+          <Text>URL: {item.website_url}</Text>
+
+          <TouchableOpacity style={styles.container} onPress={() => setModalVisible(false)}>
+              <View style={styles.container}>
+                <Text style={styles.title}>Añadir a favoritos</Text>
+                <Ionicons name="star-outline" size={40} color='brown' ></Ionicons>
+
+              </View>
+          </TouchableOpacity>
+            
+          <TouchableOpacity style={styles.container } onPress={() => setModalVisible(false)}>
+              <Text style={styles.title}>Cerrar</Text>
+          </TouchableOpacity>
           </View>
         </View>
       </Modal>
@@ -57,6 +84,7 @@ const styles = StyleSheet.create({
       borderBottomWidth: 1,
       borderBottomColor: '#ccc',
       paddingVertical: 10,
+    
      
 
       
@@ -78,7 +106,8 @@ const styles = StyleSheet.create({
       fontSize: 17,
       fontWeight:'bold',
       color:'#5B3A29',
-      paddingBottom:2
+      paddingBottom:2,
+      marginRight:15
     },
     iconContainer: {
       marginRight: 30,
@@ -96,7 +125,28 @@ const styles = StyleSheet.create({
       borderRadius: 10,
       width: '80%',
       alignItems: 'center',
+      
     },
+    imageStyle: {
+      width: 200, // Ancho de la imagen
+      height: 200, // Alto de la imagen
+      resizeMode: 'cover', // Ajuste de la imagen
+      borderRadius:100,
+      marginBottom:30
+       // Margen inferior para separar la imagen del contenido siguiente
+    },
+    titulo: {
+      fontSize: 50,
+      color: '#5B3A29',
+      fontWeight: 'bold',
+      marginVertical: 30
+    },
+    subtitulo: {
+      fontSize: 30,
+      fontWeight:'bold',
+      color:'#5B3A29',
+      paddingBottom:10
+    }
 
 
   });

@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
-
 
 const Login = () => {
   const [usuario, setUsuario] = useState('');
@@ -11,9 +9,6 @@ const Login = () => {
 
   const handlePress = async () => {
     try {
-      // Tu lógica de autenticación aquí...
-
-      // Si la autenticación es exitosa, navega a la pantalla de Cervezas
       navigation.navigate('Main');
     } catch (error) {
       Alert.alert('Error', 'Ha ocurrido un error durante la autenticación.');
@@ -37,17 +32,16 @@ const Login = () => {
         value={contraseña}
         secureTextEntry={true} // Para ocultar la contraseña
       />
-      <Button title="Presionar" onPress={handlePress} />
+      <TouchableOpacity style={styles.botones} onPress={handlePress}>
+        <Text style={styles.textoBoton}>Ingresar</Text>
+      </TouchableOpacity>
     </View>
   );
 };
 
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
     marginVertical: '40%'
@@ -70,6 +64,19 @@ const styles = StyleSheet.create({
     marginTop: 15,
     width: '80%'
   },
+  botones: {
+    backgroundColor: '#5B3A29',
+    paddingVertical: 10,
+    paddingHorizontal:30,
+    borderRadius: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop:20
+  },
+  textoBoton: {
+    color: 'white',
+    fontSize: 16,
+  }
 });
 
 export default Login;
