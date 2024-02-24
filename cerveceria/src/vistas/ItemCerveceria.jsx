@@ -43,7 +43,7 @@ const handleAddToFavorites = () => {
           <View style={styles.modalContent}>
             
             <Image
-            source={require('./images/1.jpg')} // Ruta de la imagen
+            source={require('../componentes/images/1.jpg')} // Ruta de la imagen
             style={styles.imageStyle} // Estilos de la imagen
           />
            <Text style={styles.subtitulo}>{item.name}</Text>
@@ -53,7 +53,7 @@ const handleAddToFavorites = () => {
           <Text>Direccion: {item.street||'No disponible'}</Text>
           <Text>Teléfono: {item.phone}</Text>
           
-          <Text>URL: {item.website_url}</Text>
+          <Text>URL: {item.website_url||'No disponible'}</Text>
 
           <TouchableOpacity style={styles.container} onPress={() => setModalVisible(false)}>
               <View style={styles.container}>

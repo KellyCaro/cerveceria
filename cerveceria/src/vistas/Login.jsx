@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet,ImageBackground} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const Login = () => {
@@ -14,9 +14,12 @@ const Login = () => {
       Alert.alert('Error', 'Ha ocurrido un error durante la autenticación.');
     }
   };
+  const image = {uri: 'https://legacy.reactjs.org/logo-og.png'};
 
   return (
     <View style={styles.container}>
+
+   
       <Text style={styles.titulo}>Cerveceria</Text>
       <Text style={styles.subtitulo}>Ingresa a tu cuenta</Text>
       <TextInput 
@@ -44,7 +47,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: '40%'
+    marginVertical: '40%',
+    
   },
   titulo: {
     fontSize: 50,
