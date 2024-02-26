@@ -11,13 +11,13 @@ const Login = () => {
   const navigation = useNavigation();
 
   const handlePress = () => {
-    // Verifica si existe un usuario con el nombre de usuario y contraseña proporcionados
+    
     const usuarioEncontrado = prueba.find(user => user.nombreUsuario === usuario && user.contrasena === contraseña);
     if (usuarioEncontrado) {
-      // Usuario encontrado, navega a la pantalla principal
+      
       navigation.navigate('Main');
     } else {
-      // Usuario no encontrado, muestra un mensaje de alerta
+      
       Alert.alert('Error', 'Usuario no registrado. Verifica tus credenciales.');
     }
   };
