@@ -14,8 +14,8 @@ function MyTabs() {
   return (
     <Tab.Navigator
     screenOptions={{
-      tabBarStyle: styles.tabBar, // Aplica el estilo de la barra de pestañas
-      tabBarLabelStyle: styles.tabBarLabel, // Aplica el estilo del texto de las pestañas
+      tabBarStyle: styles.tabBar, 
+      tabBarLabelStyle: styles.tabBarLabel, 
     }}
   >
       <Tab.Screen name="Cervecerias" component={Cervezas} />
