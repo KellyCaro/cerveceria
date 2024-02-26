@@ -4,6 +4,7 @@ import { StyleSheet, FlatList, Text, View, TouchableOpacity } from 'react-native
 const Favoritos = ({ favoritos }) => {
     return (
       <View>
+      <Text>Esta vista se encuentra en construccion</Text>
         <Text>Lista de favoritos:</Text>
         <FlatList
           data={favoritos}

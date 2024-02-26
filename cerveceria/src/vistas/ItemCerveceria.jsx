@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { Text, View, TouchableOpacity, Modal, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import ItemCerveceriaStyles from '../componentes/estilos/ItemCerveceriaStyles'; 
+import ItemCerveceriaStyles from '../componentes/estilos/ItemCerveceriaStyles';
+import createImageStyle from '../componentes/imagenComponent'; 
 
 const ItemCerveceria = (item) => {
   const [modalVisible, setModalVisible] = useState(false);
   const handleStarPress = () => {
     setModalVisible(true);
   };
+
+  
+  const imageStyle = createImageStyle(200, 200, 100, 30); 
 
   return (
     <View key={item.name} style={ItemCerveceriaStyles.container}>
@@ -31,8 +35,8 @@ const ItemCerveceria = (item) => {
         <View style={ItemCerveceriaStyles.modalContainer}>
           <View style={ItemCerveceriaStyles.modalContent}>
             <Image
-              source={require('../componentes/images/1.jpg')} // Ruta de la imagen
-              style={ItemCerveceriaStyles.imageStyle} // Estilos de la imagen
+              source={require('../componentes/images/1.jpg')} 
+              style={imageStyle.imageStyle} 
             />
             <Text style={ItemCerveceriaStyles.subtitulo}>{item.name}</Text>
             <Text>País: {item.country}</Text>
