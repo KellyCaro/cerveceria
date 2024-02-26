@@ -1,122 +1,52 @@
 export default[
-    {
-        "id": 1,
-        "name": "Cervecería ABC",
-        "city": "Ciudad ABC",
-        "state": "Estado ABC",
-        "country": "País ABC",
-        "brewery_type": "Micro",
-        "street": "Calle ABC 123",
-        "postal_code": "12345",
-        "phone": "123-456-7890",
-        "website_url": "https://www.cerveceriaabc.com"
-      },
-      {
-        "id": 2,
-        "name": "Cervecería XYZ",
-        "city": "Ciudad XYZ",
-        "state": "Estado XYZ",
-        "country": "País XYZ",
-        "brewery_type": "Nano",
-        "street": "Calle XYZ 456",
-        "postal_code": "54321",
-        "phone": "987-654-3210",
-        "website_url": "https://www.cerveceriaxyz.com"
-      },
-      {
-        "id": 3,
-        "name": "Cervecería Artesanal El Buen Sabor",
-        "city": "Buenos Aires",
-        "state": "Buenos Aires",
-        "country": "Argentina",
-        "brewery_type": "Artesanal",
-        "street": "Avenida Artesanal 123",
-        "postal_code": "12345",
-        "phone": "+54 11 1234-5678",
-        "website_url": "https://www.cerveceriaartesanal.com.ar"
-      },
-      {
-        "id": 4,
-        "name": "Brewpub La Cerveza Feliz",
-        "city": "Santiago",
-        "state": "Santiago",
-        "country": "Chile",
-        "brewery_type": "Brewpub",
-        "street": "Calle de la Cerveza 456",
-        "postal_code": "54321",
-        "phone": "+56 2 9876-5432",
-        "website_url": "https://www.lacervezafeliz.cl"
-      },
-      {
-        "id": 5,
-        "name": "Craft Brewery The Hoppy Place",
-        "city": "Denver",
-        "state": "Colorado",
-        "country": "United States",
-        "brewery_type": "Craft",
-        "street": "Hoppy Street 789",
-        "postal_code": "80202",
-        "phone": "+1 303-555-1234",
-        "website_url": "https://www.thehoppyplacebrewery.com"
-      },
-      {
-        "id": 6,
-        "name": "Cervecería ABC",
-        "city": "Ciudad ABC",
-        "state": "Estado ABC",
-        "country": "País ABC",
-        "brewery_type": "Micro",
-        "street": "Calle ABC 123",
-        "postal_code": "12345",
-        "phone": "123-456-7890",
-        "website_url": "https://www.cerveceriaabc.com"
-      },
-      {
-        "id":7 ,
-        "name": "Cervecería XYZ",
-        "city": "Ciudad XYZ",
-        "state": "Estado XYZ",
-        "country": "País XYZ",
-        "brewery_type": "Nano",
-        "street": "Calle XYZ 456",
-        "postal_code": "54321",
-        "phone": "987-654-3210",
-        "website_url": "https://www.cerveceriaxyz.com"
-      },
-      {
-        "id": 8,
-        "name": "Cervecería Artesanal El Buen Sabor",
-        "city": "Buenos Aires",
-        "state": "Buenos Aires",
-        "country": "Argentina",
-        "brewery_type": "Artesanal",
-        "street": "Avenida Artesanal 123",
-        "postal_code": "12345",
-        "phone": "+54 11 1234-5678",
-        "website_url": "https://www.cerveceriaartesanal.com.ar"
-      },
-      {
-        "id": 9,
-        "name": "Brewpub La Cerveza Feliz",
-        "city": "Santiago",
-        "state": "Santiago",
-        "country": "Chile",
-        "brewery_type": "Brewpub",
-        "street": "Calle de la Cerveza 456",
-        "postal_code": "54321",
-        "phone": "+56 2 9876-5432",
-        "website_url": "https://www.lacervezafeliz.cl"
-      },
-      {
-        "id": 10,
-        "name": "Craft Brewery The Hoppy Place",
-        "city": "Denver",
-        "state": "Colorado",
-        "country": "United States",
-        "brewery_type": "Craft",
-        "street": "Hoppy Street 789",
-        "postal_code": "80202",
-        "phone": "+1 303-555-1234",
-        "website_url": "https://www.thehoppyplacebrewery.com"
-      }
+  {
+    "nombreUsuario": "usuario1",
+    "correo": "usuario1@example.com",
+    "contrasena": "contraseña1"
+  },
+  {
+    "nombreUsuario": "usuario2",
+    "correo": "usuario2@example.com",
+    "contrasena": "contraseña2"
+  },
+  {
+    "nombreUsuario": "usuario3",
+    "correo": "usuario3@example.com",
+    "contrasena": "contraseña3"
+  },
+  {
+    "nombreUsuario": "usuario4",
+    "correo": "usuario4@example.com",
+    "contrasena": "contraseña4"
+  },
+  {
+    "nombreUsuario": "usuario5",
+    "correo": "usuario5@example.com",
+    "contrasena": "contraseña5"
+  },
+  {
+    "nombreUsuario": "usuario6",
+    "correo": "usuario6@example.com",
+    "contrasena": "contraseña6"
+  },
+  {
+    "nombreUsuario": "usuario7",
+    "correo": "usuario7@example.com",
+    "contrasena": "contraseña7"
+  },
+  {
+    "nombreUsuario": "usuario8",
+    "correo": "usuario8@example.com",
+    "contrasena": "contraseña8"
+  },
+  {
+    "nombreUsuario": "usuario9",
+    "correo": "usuario9@example.com",
+    "contrasena": "contraseña9"
+  },
+  {
+    "nombreUsuario": "usuario10",
+    "correo": "usuario10@example.com",
+    "contrasena": "contraseña10"
+  }
 ]

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Text, View, TouchableOpacity, Modal, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import ItemCerveceriaStyles from '../componentes/ItemCerveceriaStyles'; 
+import ItemCerveceriaStyles from '../componentes/estilos/ItemCerveceriaStyles'; 
 
 const ItemCerveceria = (item) => {
   const [modalVisible, setModalVisible] = useState(false);

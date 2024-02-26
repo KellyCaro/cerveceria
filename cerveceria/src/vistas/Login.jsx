@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
-import { View, TextInput, TouchableOpacity, Alert, Text } from 'react-native'; // Asegúrate de importar Text desde 'react-native'
+import { View, TextInput, TouchableOpacity, Alert, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import loginStyles from '../componentes/LoginStyles'; // Importa los estilos de Login
+import loginStyles from '../componentes/estilos/LoginStyles';
+import prueba from '../../DatosPrueba/prueba'; // Importa los datos del archivo JSON
 
 const Login = () => {
   const [usuario, setUsuario] = useState('');
   const [contraseña, setContraseña] = useState('');
   const navigation = useNavigation();
 
-  const handlePress = async () => {
-    try {
+  const handlePress = () => {
+    // Verifica si existe un usuario con el nombre de usuario y contraseña proporcionados
+    const usuarioEncontrado = prueba.find(user => user.nombreUsuario === usuario && user.contrasena === contraseña);
+    if (usuarioEncontrado) {
+      // Usuario encontrado, navega a la pantalla principal
       navigation.navigate('Main');
-    } catch (error) {
-      Alert.alert('Error', 'Ha ocurrido un error durante la autenticación.');
+    } else {
+      // Usuario no encontrado, muestra un mensaje de alerta
+      Alert.alert('Error', 'Usuario no registrado. Verifica tus credenciales.');
     }
   };
 
@@ -32,7 +37,7 @@ const Login = () => {
         style={loginStyles.textInput} 
         onChangeText={text => setContraseña(text)}
         value={contraseña}
-        secureTextEntry={true} // Para ocultar la contraseña
+        secureTextEntry={true}
       />
       <TouchableOpacity style={loginStyles.botones} onPress={handlePress}>
         <Text style={loginStyles.textoBoton}>Ingresar</Text>

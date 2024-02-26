@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, FlatList, Text, 
-TouchableOpacity,TextInput } from 'react-native';
+import { StyleSheet, FlatList, Text, TouchableOpacity, TextInput, View } from 'react-native';
 import ItemCerveceria from './ItemCerveceria';
+import ListadoStyles from '../componentes/estilos/ListadoCervezasStyles';
 
 const Cervezas = () => {
   const [cervezas, setCervezas] = useState([]);
@@ -29,67 +29,49 @@ const Cervezas = () => {
   useEffect(() => {
     fetchCervezas();
   }, []);
+
   const handleFilterPress = () => {
     // Aquí puedes agregar la lógica para filtrar las cervezas
     console.log('Filtrar cervezas');
     // Por ahora, solo mostraré un mensaje de alerta
-  
   };
 
-  
   const filteredCervezas = cervezas.filter(cerveza =>
     cerveza.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
   const handleSearchChange = (text) => {
     setSearchTerm(text);
   };
-  
 
   if (loading) {
-    return <Text>Cargando...</Text>;
+    return <Text style={ListadoStyles.loadingText}>Cargando...</Text>;
   }
 
   if (error) {
-    return <Text>Error: {error}</Text>;
+    return <Text style={ListadoStyles.errorText}>Error: {error}</Text>;
   }
 
   return (
-    <FlatList
-      style={styles.container}
-      data={filteredCervezas}
-      renderItem={({ item: repo }) => (
-        <ItemCerveceria {...repo}/>   
-      )}
-      ListHeaderComponent={
-        <TouchableOpacity style={styles.filterButton} onPress={handleFilterPress}>
-          <TextInput
-          style={styles.textInput}
-          placeholder="Buscar cerveceria..."
-          onChangeText={handleSearchChange}
-          value={searchTerm}
-        />
-        </TouchableOpacity>
-      }
-    />
+    <View style={ListadoStyles.container}>
+      <FlatList
+        data={filteredCervezas}
+        renderItem={({ item: repo }) => (
+          <ItemCerveceria {...repo}/>   
+        )}
+        ListHeaderComponent={
+          <TouchableOpacity style={ListadoStyles.filterButton} onPress={handleFilterPress}>
+            <TextInput
+              style={ListadoStyles.textInput}
+              placeholder="Buscar cerveceria..."
+              onChangeText={handleSearchChange}
+              value={searchTerm}
+            />
+          </TouchableOpacity>
+        }
+      />
+    </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    marginLeft: 20,
-    marginRight: 20,
-    marginBottom: 20,
-  },
-  textInput: {
-   
-    borderBottomWidth: 3,
-    borderBottomColor: '#5B3A29',
-    
-    padding: 5,
-    marginTop: 15,
-    width: '100%'
-
-  }
-});
 
 export default Cervezas;
